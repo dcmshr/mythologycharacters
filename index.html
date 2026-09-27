@@ -1,0 +1,1219 @@
+<!doctype html>
+<html lang="en">
+ <head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260925-05-46ec85d","C":{"Abril Fatface":"YACgEZbkUVE,0","Alfa Slab One":"YACgEYS9sJU,0","Anton":"YACgEcYqQ-A,0","Archivo":"YACgEZulLoA,0","Arial Narrow":"YAGyDvJ_4Ts,0","Arial Rounded MT Bold":"YAFcfoaHu-s,0","Arial":"YAGyDvJ_4Ts,0","Avenir Next":"YAFcfmNq6UY,0","Baloo 2":"YADK30bC6HQ,0","Bebas Neue":"YACgESME5ew,0","Bricolage Grotesque":"YAFyMcdwzpc,0","Broken Glyph":"YADZ-exUkv0,0","Canva Sans":"YAFdJjTk5UU,1","Caveat":"YALBs2ploWQ,0","Comic Sans MS":"YAFcfvtOAUY,1","Cormorant Garamond":"YAFdJhX-538,0","Courier New":"YAGzXiGs0_8,0","Courier Prime":"YAD1aFjegN8,0","DM Sans":"YAD1aU3sLnI,0","DM Serif Display":"YAD1aYG82rc,0","Forum":"YACgEcnnqB4,0","Fraunces":"YAFdJpU7Kkk,0","Georgia":"YAGzXkO0pEM,0","Ghost Mono":"YAHQutsX00Q,0","Hanken Grotesk":"YAFcfhwp99E,0","Helvetica Neue":"YAFcf6CtJfI,0","Helvetica":"YAFcf6CtJfI,0","IBM Plex Mono":"YAFdJkmvhGI,0","Impact":"YAFcfnjI7Vk,0","Instrument Serif":"YAHFeOnZNEk,0","Inter":"YAFdJvSyp_k,3","Iowan Old Style":"YAGNIFa8j9o,0","Jacques Francois":"YADK3zbC6RM,0","JetBrains Mono":"YAFdJksXcAk,0","Josefin Sans":"YAFdJjvw9Ps,0","Lato":"YAFdJuFCnaw,0","Libre Baskerville":"YACgEUFdPdA,0","Lobster":"YAD8SnSjSFI,0","Lora":"YACgEXvxf8Q,0","Merriweather":"YACgEXvHxxs,0","Montserrat":"YAFdtQi73Xs,0","Nunito":"YAFdJoNRMmU,1","Oleo Script":"YACgEQQ14jI,0","Oswald":"YACgEQY10lw,0","Pacifico":"YADLjORQ1u4,0","Phantom Sans":"YAFdJvgJ5TU,0","Playfair Display":"YAFdJhem5V8,1","Plus Jakarta Sans":"YAGvf3_u0_Q,0","Poppins":"YAFdJjbTu24,1","Press Start 2P":"YAFyGr-8pmQ,0","Quicksand":"YAFdJpYtCxE,1","Raleway":"YAFdJhmxbVQ,1","Roboto Slab":"YAFdJswIKAg,0","Rockwell":"YAFcfyVZnN0,0","Rye":"YACgEdQP21k,0","Segoe UI":"YAHNdRD1Klw,0","Source Sans 3":"YAG4lO1Mj10,0","Source Serif 4":"YACgEfdj394,0","Space Grotesk":"YADZ-dYEmhg,0","Space Mono":"YADW1-vpsoc,0","Times New Roman":"YAGzXW3gftg,0","Times":"YAGzXW3gftg,0","Trebuchet MS":"YAFcfrglpVA,0","UV Display":"YAEdVfSSpYo,0","UV Sans":"YAFdJvgJ5TU,0","Ubuntu":"YACgERDU--Q,0","Verdana":"YAGzXTctYtQ,0","Work Sans":"YAGXhLOKv44,0","Yellowtail":"YACgEYG4kG4,0","ui-monospace":"YAD1aFjegN8,0","ui-sans-serif":"YACkoD1yZN0,0"}}');</script><script src="/_sdk/6542d56fbfe7a3eb.telemetry_sdk.js" integrity="sha512-ECdM0nK7EkwDuOqho2qxgyRQXyBHk9hZqRKMBr+Xsu6zjeHlt+qkO2N2YRiHN7Kg4e1fEHDhjIp4bGJYVypv1g=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mythology Hero Explorer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+:root{--ink:#1d2b45;--terra:#c2542d;--paper:#fbf4e4;--paper2:#f3e6c8;--line:#e2d2ad;--gold:#e7a93b;}
+body{font-family:'Playpen Sans',sans-serif;color:var(--ink);}
+.bg-map{background-image:radial-gradient(circle at 15% 10%,rgba(194,84,45,.10),transparent 40%),radial-gradient(circle at 85% 80%,rgba(29,43,69,.10),transparent 45%),repeating-linear-gradient(0deg,transparent 0 39px,rgba(29,43,69,.05) 39px 40px),repeating-linear-gradient(90deg,transparent 0 39px,rgba(29,43,69,.05) 39px 40px);}
+.display{font-family:'Playpen Sans',sans-serif;}
+.tab-strip{display:flex;gap:.5rem;overflow-x:auto;padding:.25rem .25rem .75rem;scrollbar-width:thin;}
+.tab-btn{flex:0 0 auto;padding:.6rem 1.1rem;border-radius:999px;border:2px solid var(--ink);font-weight:700;cursor:pointer;transition:transform .15s,box-shadow .15s;background:#fffaf0;color:var(--ink);}
+.tab-btn:hover{transform:translateY(-2px);}
+.tab-btn[aria-selected="true"]{box-shadow:4px 4px 0 var(--ink);outline:3px solid var(--gold);outline-offset:1px;}
+.tab-btn:focus-visible,.char-btn:focus-visible{outline:3px solid var(--terra);outline-offset:3px;}
+.panel-grid{display:grid;grid-template-columns:260px 1fr;gap:1.5rem;align-items:start;}
+@media(max-width:820px){.panel-grid{grid-template-columns:1fr;}.roster{flex-direction:row;overflow-x:auto;}.roster .char-btn{flex:0 0 auto;}}
+.roster{display:flex;flex-direction:column;gap:.5rem;counter-reset:hero;}
+.char-btn{counter-increment:hero;text-align:left;padding:.65rem .9rem;border-radius:14px;border:2px solid var(--line);background:#fffaf0;font-weight:700;cursor:pointer;transition:all .15s;color:var(--ink);}
+.char-btn::before{content:counter(hero);display:inline-grid;place-items:center;width:1.6rem;height:1.6rem;margin-right:.6rem;border-radius:50%;background:var(--paper2);font-size:.85rem;}
+.char-btn:hover{border-color:var(--terra);}
+.char-btn[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:#fff;}
+.char-btn[aria-pressed="true"]::before{background:var(--gold);color:var(--ink);}
+.profile{background:#fffdf6;border:2px solid var(--ink);border-radius:22px;box-shadow:8px 8px 0 var(--ink);padding:1.75rem;animation:pop .35s ease;}
+@keyframes pop{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.story-tag{display:inline-block;padding:.25rem .8rem;border-radius:999px;background:var(--terra);color:#fff;font-weight:700;font-style:italic;}
+.hero-name{font-family:'Fraunces',serif;margin:.5rem 0 1.25rem;line-height:1.1;}
+.facts{display:grid;grid-template-columns:1fr;gap:.75rem;}
+@media(max-width:640px){.facts{grid-template-columns:1fr;}}
+.fact{background:var(--paper);border:1.5px dashed var(--line);border-radius:16px;padding:1rem 1.1rem;}
+.fact.wide{grid-column:1/-1;background:#fdebd9;border-color:#f0c4a4;}
+.fact h4{display:none;}
+.fact p{line-height:1.55;}
+.panel{animation:pop .35s ease;}
+.reveal{animation:pop .6s ease both;}
+</style>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+  <script src="/_sdk/6c2ecc939521f244.data_sdk.js" type="text/javascript" integrity="sha512-gRx8s+XsZDN6mSIQu2sivLZysbV0WHhb5kXNUWlgVb5lCMU1foJYukyMEDPv8Tnoocb8iwqB4XdRrWc7oEGzIQ=="></script>
+  <script src="/_sdk/ef0304cb8c7ed696.editing_sdk.js" type="text/javascript" integrity="sha512-kmL9L5Yuj57MQaequKbMA3aGpT/5lBUp10iGA3e3qnmMLs2ZZQ0poCcIfdd5rTgrhEvNPe4HK0ohePW7ZpgAFg=="></script>
+  <script src="/_sdk/ddcab3e45959c817.resizing_sdk.js" type="text/javascript" integrity="sha512-VAviUKfZVzugWBSeULYjSljTX+nb84wc6Zzbx5GQaQgh6X2ISSjXi8eIiCDGdwDh10esJMY0+QFQgUy9NcrTlQ=="></script>
+ </head>
+ <body data-template-id="__page-root" class="min-h-screen w-full bg-map">
+  <div class="w-full">
+   <header data-template-id="site-header" class="canva-header w-full border-b-2 border-[#1d2b45]">
+    <div class="max-w-6xl mx-auto px-5 py-8 reveal">
+     <h1 data-template-id="site-title" class="canva-text display"></h1>
+     <p data-template-id="site-subtitle" class="canva-text mt-2 max-w-3xl"></p>
+     <p data-template-id="site-tip" class="canva-text mt-3 inline-block px-3 py-1 rounded-lg"></p>
+    </div>
+   </header>
+   <main class="max-w-6xl mx-auto px-5 py-8">
+    <nav aria-label="Countries" class="reveal" style="animation-delay:.1s">
+     <div class="tab-strip" role="tablist">
+      <button role="tab" id="t-greece" aria-controls="panel-greece" aria-selected="true" class="tab-btn canva-button" data-template-id="tab-greece"></button> <button role="tab" id="t-china" aria-controls="panel-china" aria-selected="false" tabindex="-1" class="tab-btn canva-button" data-template-id="tab-china"></button> <button role="tab" id="t-thailand" aria-controls="panel-thailand" aria-selected="false" tabindex="-1" class="tab-btn canva-button" data-template-id="tab-thailand"></button> <button role="tab" id="t-uk" aria-controls="panel-uk" aria-selected="false" tabindex="-1" class="tab-btn canva-button" data-template-id="tab-uk"></button> <button role="tab" id="t-canada" aria-controls="panel-canada" aria-selected="false" tabindex="-1" class="tab-btn canva-button" data-template-id="tab-canada"></button> <button role="tab" id="t-nz" aria-controls="panel-nz" aria-selected="false" tabindex="-1" class="tab-btn canva-button" data-template-id="tab-nz"></button> <button role="tab" id="t-pakistan" aria-controls="panel-pakistan" aria-selected="false" tabindex="-1" class="tab-btn canva-button" data-template-id="tab-pakistan"></button> <button role="tab" id="t-korea" aria-controls="panel-korea" aria-selected="false" tabindex="-1" class="tab-btn canva-button" data-template-id="tab-korea"></button>
+     </div>
+    </nav>
+    <div id="panels" class="mt-4 reveal" style="animation-delay:.2s"></div>
+   </main>
+   <footer class="w-full border-t-2 border-[#1d2b45]">
+    <div class="max-w-6xl mx-auto px-5 py-6">
+     <p data-template-id="site-footer-note" class="canva-text"></p>
+    </div>
+   </footer>
+  </div><!-- Panels are written statically below; the #panels wrapper is filled by moving them in for layout ordering -->
+  <div id="panel-source">
+   <section class="panel" role="tabpanel" id="panel-greece" aria-labelledby="t-greece">
+    <h2 data-template-id="greece-heading" class="canva-text display"></h2>
+    <p data-template-id="greece-intro" class="canva-text mb-5"></p>
+    <div class="panel-grid">
+     <div class="roster" role="group" aria-label="Greek characters">
+      <button class="char-btn canva-button" data-target="c1" data-template-id="c1-btn"></button> <button class="char-btn canva-button" data-target="c2" data-template-id="c2-btn"></button> <button class="char-btn canva-button" data-target="c3" data-template-id="c3-btn"></button> <button class="char-btn canva-button" data-target="c4" data-template-id="c4-btn"></button> <button class="char-btn canva-button" data-target="c5" data-template-id="c5-btn"></button> <button class="char-btn canva-button" data-target="c6" data-template-id="c6-btn"></button> <button class="char-btn canva-button" data-target="c7" data-template-id="c7-btn"></button> <button class="char-btn canva-button" data-target="c8" data-template-id="c8-btn"></button>
+     </div>
+     <div class="profiles" data-range="1-8"></div>
+    </div>
+   </section>
+   <section class="panel hidden" role="tabpanel" id="panel-china" aria-labelledby="t-china">
+    <h2 data-template-id="china-heading" class="canva-text display"></h2>
+    <p data-template-id="china-intro" class="canva-text mb-5"></p>
+    <div class="panel-grid">
+     <div class="roster" role="group" aria-label="Chinese characters">
+      <button class="char-btn canva-button" data-target="c9" data-template-id="c9-btn"></button> <button class="char-btn canva-button" data-target="c10" data-template-id="c10-btn"></button> <button class="char-btn canva-button" data-target="c11" data-template-id="c11-btn"></button> <button class="char-btn canva-button" data-target="c12" data-template-id="c12-btn"></button> <button class="char-btn canva-button" data-target="c13" data-template-id="c13-btn"></button> <button class="char-btn canva-button" data-target="c14" data-template-id="c14-btn"></button> <button class="char-btn canva-button" data-target="c15" data-template-id="c15-btn"></button> <button class="char-btn canva-button" data-target="c16" data-template-id="c16-btn"></button>
+     </div>
+     <div class="profiles" data-range="9-16"></div>
+    </div>
+   </section>
+   <section class="panel hidden" role="tabpanel" id="panel-thailand" aria-labelledby="t-thailand">
+    <h2 data-template-id="thailand-heading" class="canva-text display"></h2>
+    <p data-template-id="thailand-intro" class="canva-text mb-5"></p>
+    <div class="panel-grid">
+     <div class="roster" role="group" aria-label="Thai characters">
+      <button class="char-btn canva-button" data-target="c17" data-template-id="c17-btn"></button> <button class="char-btn canva-button" data-target="c18" data-template-id="c18-btn"></button> <button class="char-btn canva-button" data-target="c19" data-template-id="c19-btn"></button> <button class="char-btn canva-button" data-target="c20" data-template-id="c20-btn"></button> <button class="char-btn canva-button" data-target="c21" data-template-id="c21-btn"></button> <button class="char-btn canva-button" data-target="c22" data-template-id="c22-btn"></button> <button class="char-btn canva-button" data-target="c23" data-template-id="c23-btn"></button> <button class="char-btn canva-button" data-target="c24" data-template-id="c24-btn"></button>
+     </div>
+     <div class="profiles" data-range="17-24"></div>
+    </div>
+   </section>
+   <section class="panel hidden" role="tabpanel" id="panel-uk" aria-labelledby="t-uk">
+    <h2 data-template-id="uk-heading" class="canva-text display"></h2>
+    <p data-template-id="uk-intro" class="canva-text mb-5"></p>
+    <div class="panel-grid">
+     <div class="roster" role="group" aria-label="British characters">
+      <button class="char-btn canva-button" data-target="c25" data-template-id="c25-btn"></button> <button class="char-btn canva-button" data-target="c26" data-template-id="c26-btn"></button> <button class="char-btn canva-button" data-target="c27" data-template-id="c27-btn"></button>
+     </div>
+     <div class="profiles" data-range="25-27"></div>
+    </div>
+   </section>
+   <section class="panel hidden" role="tabpanel" id="panel-canada" aria-labelledby="t-canada">
+    <h2 data-template-id="canada-heading" class="canva-text display"></h2>
+    <p data-template-id="canada-intro" class="canva-text mb-5"></p>
+    <div class="panel-grid">
+     <div class="roster" role="group" aria-label="Canadian characters">
+      <button class="char-btn canva-button" data-target="c28" data-template-id="c28-btn"></button> <button class="char-btn canva-button" data-target="c29" data-template-id="c29-btn"></button> <button class="char-btn canva-button" data-target="c30" data-template-id="c30-btn"></button>
+     </div>
+     <div class="profiles" data-range="28-30"></div>
+    </div>
+   </section>
+   <section class="panel hidden" role="tabpanel" id="panel-nz" aria-labelledby="t-nz">
+    <h2 data-template-id="nz-heading" class="canva-text display"></h2>
+    <p data-template-id="nz-intro" class="canva-text mb-5"></p>
+    <div class="panel-grid">
+     <div class="roster" role="group" aria-label="New Zealand characters">
+      <button class="char-btn canva-button" data-target="c31" data-template-id="c31-btn"></button> <button class="char-btn canva-button" data-target="c32" data-template-id="c32-btn"></button> <button class="char-btn canva-button" data-target="c33" data-template-id="c33-btn"></button>
+     </div>
+     <div class="profiles" data-range="31-33"></div>
+    </div>
+   </section>
+   <section class="panel hidden" role="tabpanel" id="panel-pakistan" aria-labelledby="t-pakistan">
+    <h2 data-template-id="pakistan-heading" class="canva-text display"></h2>
+    <p data-template-id="pakistan-intro" class="canva-text mb-5"></p>
+    <div class="panel-grid">
+     <div class="roster" role="group" aria-label="Pakistani characters">
+      <button class="char-btn canva-button" data-target="c34" data-template-id="c34-btn"></button> <button class="char-btn canva-button" data-target="c35" data-template-id="c35-btn"></button> <button class="char-btn canva-button" data-target="c36" data-template-id="c36-btn"></button>
+     </div>
+     <div class="profiles" data-range="34-36"></div>
+    </div>
+   </section>
+   <section class="panel hidden" role="tabpanel" id="panel-korea" aria-labelledby="t-korea">
+    <h2 data-template-id="korea-heading" class="canva-text display"></h2>
+    <p data-template-id="korea-intro" class="canva-text mb-5"></p>
+    <div class="panel-grid">
+     <div class="roster" role="group" aria-label="Korean characters">
+      <button class="char-btn canva-button" data-target="c37" data-template-id="c37-btn"></button> <button class="char-btn canva-button" data-target="c38" data-template-id="c38-btn"></button> <button class="char-btn canva-button" data-target="c39" data-template-id="c39-btn"></button>
+     </div>
+     <div class="profiles" data-range="37-39"></div>
+    </div>
+   </section>
+  </div><!-- All 39 profiles, each with static template ids -->
+  <div id="profile-source" class="hidden">
+   <article class="profile canva-card" id="c1">
+    <p data-template-id="c1-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c1-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c1-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c1-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c1-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c1-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c1-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c2">
+    <p data-template-id="c2-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c2-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c2-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c2-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c2-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c2-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c2-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c3">
+    <p data-template-id="c3-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c3-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c3-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c3-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c3-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c3-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c3-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c4">
+    <p data-template-id="c4-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c4-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c4-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c4-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c4-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c4-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c4-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c5">
+    <p data-template-id="c5-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c5-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c5-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c5-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c5-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c5-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c5-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c6">
+    <p data-template-id="c6-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c6-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c6-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c6-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c6-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c6-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c6-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c7">
+    <p data-template-id="c7-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c7-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c7-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c7-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c7-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c7-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c7-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c8">
+    <p data-template-id="c8-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c8-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c8-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c8-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c8-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c8-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c8-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c9">
+    <p data-template-id="c9-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c9-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c9-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c9-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c9-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c9-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c9-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c10">
+    <p data-template-id="c10-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c10-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c10-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c10-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c10-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c10-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c10-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c11">
+    <p data-template-id="c11-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c11-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c11-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c11-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c11-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c11-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c11-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c12">
+    <p data-template-id="c12-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c12-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c12-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c12-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c12-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c12-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c12-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c13">
+    <p data-template-id="c13-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c13-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c13-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c13-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c13-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c13-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c13-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c14">
+    <p data-template-id="c14-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c14-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c14-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c14-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c14-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c14-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c14-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c15">
+    <p data-template-id="c15-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c15-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c15-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c15-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c15-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c15-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c15-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c16">
+    <p data-template-id="c16-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c16-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c16-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c16-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c16-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c16-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c16-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c17">
+    <p data-template-id="c17-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c17-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c17-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c17-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c17-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c17-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c17-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c18">
+    <p data-template-id="c18-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c18-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c18-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c18-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c18-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c18-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c18-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c19">
+    <p data-template-id="c19-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c19-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c19-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c19-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c19-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c19-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c19-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c20">
+    <p data-template-id="c20-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c20-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c20-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c20-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c20-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c20-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c20-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c21">
+    <p data-template-id="c21-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c21-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c21-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c21-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c21-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c21-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c21-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c22">
+    <p data-template-id="c22-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c22-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c22-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c22-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c22-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c22-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c22-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c23">
+    <p data-template-id="c23-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c23-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c23-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c23-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c23-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c23-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c23-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c24">
+    <p data-template-id="c24-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c24-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c24-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c24-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c24-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c24-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c24-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c25">
+    <p data-template-id="c25-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c25-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c25-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c25-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c25-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c25-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c25-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c26">
+    <p data-template-id="c26-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c26-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c26-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c26-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c26-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c26-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c26-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c27">
+    <p data-template-id="c27-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c27-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c27-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c27-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c27-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c27-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c27-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c28">
+    <p data-template-id="c28-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c28-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c28-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c28-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c28-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c28-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c28-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c29">
+    <p data-template-id="c29-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c29-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c29-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c29-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c29-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c29-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c29-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c30">
+    <p data-template-id="c30-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c30-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c30-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c30-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c30-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c30-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c30-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c31">
+    <p data-template-id="c31-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c31-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c31-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c31-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c31-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c31-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c31-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c32">
+    <p data-template-id="c32-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c32-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c32-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c32-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c32-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c32-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c32-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c33">
+    <p data-template-id="c33-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c33-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c33-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c33-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c33-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c33-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c33-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c34">
+    <p data-template-id="c34-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c34-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c34-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c34-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c34-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c34-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c34-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c35">
+    <p data-template-id="c35-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c35-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c35-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c35-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c35-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c35-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c35-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c36">
+    <p data-template-id="c36-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c36-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c36-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c36-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c36-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c36-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c36-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c37">
+    <p data-template-id="c37-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c37-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c37-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c37-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c37-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c37-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c37-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c38">
+    <p data-template-id="c38-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c38-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c38-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c38-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c38-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c38-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c38-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+   <article class="profile canva-card" id="c39">
+    <p data-template-id="c39-story" class="story-tag canva-tag"></p>
+    <h3 data-template-id="c39-name" class="hero-name canva-text"></h3>
+    <div class="facts">
+     <div class="fact">
+      <h4 data-template-id="label-family" class="canva-text"></h4>
+      <p data-template-id="c39-family" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-traits" class="canva-text"></h4>
+      <p data-template-id="c39-traits" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-powers" class="canva-text"></h4>
+      <p data-template-id="c39-powers" class="canva-text"></p>
+     </div>
+     <div class="fact">
+      <h4 data-template-id="label-quest" class="canva-text"></h4>
+      <p data-template-id="c39-quest" class="canva-text"></p>
+     </div>
+     <div class="fact wide">
+      <h4 data-template-id="label-lesson" class="canva-text"></h4>
+      <p data-template-id="c39-lesson" class="canva-text"></p>
+     </div>
+    </div>
+   </article>
+  </div>
+  <script>
+(function(){
+  // Move static panels into main, and profiles into their panel (structure only, no content changes)
+  const panelsWrap = document.getElementById('panels');
+  document.querySelectorAll('#panel-source > section').forEach(s => panelsWrap.appendChild(s));
+  document.getElementById('panel-source').remove();
+  document.querySelectorAll('.profiles').forEach(box => {
+    const [a,b] = box.dataset.range.split('-').map(Number);
+    for (let i=a;i<=b;i++){
+      const p = document.getElementById('c'+i);
+      if (i !== a) p.classList.add('hidden');
+      box.appendChild(p);
+    }
+  });
+  document.getElementById('profile-source').remove();
+
+  // Character selection per panel
+  document.querySelectorAll('.panel').forEach(panel => {
+    const btns = panel.querySelectorAll('.char-btn');
+    btns.forEach((btn,i) => {
+      btn.setAttribute('aria-pressed', i===0 ? 'true':'false');
+      btn.addEventListener('click', () => {
+        btns.forEach(b => b.setAttribute('aria-pressed','false'));
+        btn.setAttribute('aria-pressed','true');
+        panel.querySelectorAll('.profile').forEach(p => p.classList.toggle('hidden', p.id !== btn.dataset.target));
+        if (window.innerWidth < 820) document.getElementById(btn.dataset.target).scrollIntoView({behavior:'smooth',block:'start'});
+      });
+    });
+  });
+
+  // Tabs
+  const tabs = [...document.querySelectorAll('[role="tab"]')];
+  function selectTab(tab){
+    tabs.forEach(t => {
+      const on = t === tab;
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).classList.toggle('hidden', !on);
+    });
+    tab.scrollIntoView({block:'nearest',inline:'nearest'});
+  }
+  tabs.forEach((t,i) => {
+    t.addEventListener('click', () => selectTab(t));
+    t.addEventListener('keydown', e => {
+      let n = null;
+      if (e.key === 'ArrowRight') n = tabs[(i+1)%tabs.length];
+      if (e.key === 'ArrowLeft') n = tabs[(i-1+tabs.length)%tabs.length];
+      if (n){ e.preventDefault(); selectTab(n); n.focus(); }
+    });
+  });
+})();
+</script>
+ </body>
+</html>
